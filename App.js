@@ -21,64 +21,22 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Online Store',headerStyle: {
+      <Stack.Navigator screenOptions={{headerStyle: {
             backgroundColor: color.Red,
           },
           headerTintColor: color.white,
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }, }} />
+          },}}>
+        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Online Store', }} />
           
-          <Stack.Screen name="Employeelist" component={Employeelist} options={{ headerStyle: {
-            backgroundColor: color.Red,
-          },
-          headerTintColor: color.white,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          }, }} />
-          <Stack.Screen name="EmployeeDetails" component={EmployeeDetails} options={{ headerStyle: {
-            backgroundColor: color.Red,
-          },
-          headerTintColor: color.white,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          }, }} />
-          <Stack.Screen name="Productlist" component={Productlist} options={{ headerStyle: {
-            backgroundColor: color.Red,
-          },
-          headerTintColor: color.white,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          }, }} />
-          <Stack.Screen name="ProductDetails" component={ProductDetails} options={{ headerStyle: {
-            backgroundColor: color.Red,
-          },
-          headerTintColor: color.white,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          }, }} />
-           <Stack.Screen name="OrderDetails" component={OrderDetails} options={{ headerStyle: {
-            backgroundColor: color.Red,
-          },
-          headerTintColor: color.white,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          }, }} />
-           <Stack.Screen name="Orderlist" component={Orderlist} options={{ headerStyle: {
-            backgroundColor: color.Red,
-          },
-          headerTintColor: color.white,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          }, }} />
+          <Stack.Screen name="Employeelist" component={Employeelist} />
+          <Stack.Screen name="EmployeeDetails" component={EmployeeDetails}  options={({ route }) => ({ title: route.params.name })}  />
+          <Stack.Screen name="Productlist" component={Productlist} />
+          <Stack.Screen name="ProductDetails" component={ProductDetails}  options={({ route }) => ({ title: route.params.name })} />
+           <Stack.Screen name="OrderDetails" component={OrderDetails}  options={({ route }) => ({ title: route.params.name })} />
+           <Stack.Screen name="Orderlist" component={Orderlist} />
       </Stack.Navigator>
     </NavigationContainer>
   );
